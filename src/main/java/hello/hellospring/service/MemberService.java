@@ -5,12 +5,16 @@ import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 //@Service
 //스프링에 올라올 때 서비스라고 스프링 컨테이너에 딱 등록해줌
+@Transactional
+//데이터를 저장하거나 변경할 때 필요함
+//레포지토리에서 JPA를 썼는데 서비스에서 @트랜잭션을 넣어줘야하네?
 public class MemberService {
 
     private final MemberRepository memberRepository;
